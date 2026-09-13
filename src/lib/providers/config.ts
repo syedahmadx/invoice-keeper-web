@@ -11,7 +11,7 @@
 export const EXTRACTION_PROVIDER = "Gemini";
 export const REVIEW_PROVIDER = "Gemini";
 
-export const GEMINI_MODEL = "gemini-2.5-flash";
+export const GEMINI_MODEL = 'gemini-3.6-flash';
 
 /** Upstream model calls are abandoned after this many milliseconds. */
 export const PROVIDER_TIMEOUT_MS = 30_000;
