@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/*
+  Invoice Keeper design tokens.
+
+  A tool for handling money should read like a well-set ledger: warm paper,
+  near-black ink, hairline rules, and exactly one accent — deep navy — reserved
+  for primary actions. Semantic colour is used only to carry meaning (a failed
+  check, a sent invoice), never for decoration.
+*/
+@theme {
+  --color-paper: #f7f6f3;
+  --color-surface: #ffffff;
+  --color-sunken: #f2f1ec;
+
+  --color-ink: #14181d;
+  --color-ink-muted: #59626d;
+  --color-ink-faint: #878f99;
+
+  --color-line: #e3e1db;
+  --color-line-strong: #c9c6bf;
+
+  --color-accent: #15374f;
+  --color-accent-hover: #0c2537;
+  --color-accent-soft: #e9eef2;
+
+  --color-danger: #a8261c;
+  --color-danger-soft: #fbeeec;
+  --color-danger-line: #eccbc6;
+
+  --color-warn: #8c5409;
+  --color-warn-soft: #fbf2e3;
+  --color-warn-line: #ecdcbd;
+
+  --color-ok: #1a6a44;
+  --color-ok-soft: #eaf3ee;
+  --color-ok-line: #c6e0d2;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas,
+    monospace;
+}
+
+:root {
+  /* Committed to a single light treatment; form controls should follow. */
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Every figure in the app aligns in its column. */
+.numeric {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+/* One consistent focus treatment, visible against paper and against navy. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Number inputs: the spinners crowd right-aligned money columns. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
